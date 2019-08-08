@@ -2,7 +2,7 @@
  
 countQuery = "SELECT COUNT (pa) FROM ProductionAgent pa, Agent ag, Client cl WHERE pa.agent_number = ag.agent_number AND pa.client_number = cl.client_number")
 
-Page<DTO> nameMethod(
+Page<ProductionAgentDTO> nameMethod(
 	@Param("agentNumber") String agentNumber,
 	Pageable pageable
 )
