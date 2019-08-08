@@ -1,0 +1,8 @@
+@Query(value = "SELECT new com.prudential.production.dto.ProductionAgentDTO(pa.period_year, pa.period_month, pa.agent_number, cl.client_name, pa.leader_number, pa.total_api, pa.total_ape, pa.total_spi, pa.total_saver, (pa.total_api_02, pa.total_spi_02, pa.total_ape_02, pa.total_saver_02) FROM production_agent ag, Agent ag, Client cl WHERE pa.agent_number = ag.agent_number, AND pa.client_number = cl.client_number, AND pa.agent_number LIKE %:agentNumber%,
+ 
+countQuery = "SELECT COUNT (pa) FROM ProductionAgent pa, Agent ag, Client cl WHERE pa.agent_number = ag.agent_number AND pa.client_number = cl.client_number")
+
+Page<DTO> nameMethod(
+	@Param("agentNumber") String agentNumber,
+	Pageable pageable
+)
